@@ -1,0 +1,447 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0d;
+  --bg2:#141414;
+  --bg3:#1a1a1a;
+  --bg4:#222;
+  --border:#2a2a2a;
+  --border2:#333;
+  --saffron:#FF9933;
+  --saffronD:#c97520;
+  --green:#22c55e;
+  --maroon:#8b1a1a;
+  --maroonL:#b52525;
+  --gold:#D4AF37;
+  --goldD:#a8861c;
+  --text:#e8e0d4;
+  --text2:#a09080;
+  --text3:#6a5a50;
+  --white:#f5f0e8;
+}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* HERO */
+.hero{background:linear-gradient(170deg,#0d0507 0%,#1a0a0a 35%,#0d0d0d 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 50%,rgba(139,26,26,0.25) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 60% at 85% 20%,rgba(255,153,51,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 30% 40% at 70% 85%,rgba(34,197,94,0.06) 0%,transparent 60%);
+  pointer-events:none}
+.tricolor-top{height:4px;background:linear-gradient(90deg,var(--saffron) 33.3%,#fff 33.3% 66.6%,var(--green) 66.6%)}
+.hero-body{padding:2rem 1.5rem 1.75rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;justify-content:center;position:relative;z-index:1}
+
+/* LOGO */
+.logo-wrap{position:relative;flex-shrink:0}
+.logo-ring{width:88px;height:88px;border-radius:50%;border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(212,175,55,0.08),0 0 30px rgba(212,175,55,0.2);overflow:hidden;background:#1a0505}
+.logo-ring img{width:100%;height:100%;object-fit:cover}
+.logo-glow{position:absolute;inset:-4px;border-radius:50%;background:transparent;box-shadow:0 0 20px rgba(212,175,55,0.35);pointer-events:none}
+
+/* HERO TEXT */
+.hero-text{flex:1;min-width:220px;text-align:left}
+.kv-label{font-size:10px;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:4px;opacity:.85}
+.blog-title{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,3.5vw,1.9rem);font-weight:700;color:var(--white);line-height:1.2}
+.blog-title .hi{color:var(--saffron)}
+.blog-title .lo{color:var(--green)}
+.blog-sub{font-size:11px;color:var(--text2);margin-top:5px;letter-spacing:.3px}
+.motto-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.22);border-radius:99px;padding:4px 14px;font-size:10px;color:var(--gold);letter-spacing:.5px;margin-top:9px}
+.motto-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7}
+.stats{display:flex;gap:1.4rem;margin-top:12px;flex-wrap:wrap}
+.stat strong{display:block;font-size:1.35rem;font-weight:700;color:var(--saffron);line-height:1}
+.stat span{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:1.2px}
+
+.tricolor-bot{height:3px;background:linear-gradient(90deg,var(--saffron) 33%,rgba(255,255,255,0.5) 33% 66%,var(--green) 66%)}
+
+/* STREAK */
+.streak-wrap{background:var(--bg2);border-bottom:1px solid var(--border);padding:.75rem 1.3rem;display:flex;align-items:center;gap:8px;overflow-x:auto}
+.streak-lbl{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);white-space:nowrap;font-weight:600}
+.streak-dots{display:flex;gap:4px}
+.dd{width:25px;height:25px;border-radius:6px;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s}
+.dd.done{background:linear-gradient(135deg,var(--saffron),var(--saffronD));color:#fff}
+.dd.today{background:transparent;border:1.5px solid var(--saffron);color:var(--saffron)}
+.dd.miss{background:var(--bg3);color:var(--text3)}
+
+/* NAV */
+.nav{display:flex;gap:6px;padding:.85rem 1.3rem;background:var(--bg2);border-bottom:1px solid var(--border2);overflow-x:auto}
+.tab{padding:6px 16px;border-radius:99px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;border:1px solid transparent;transition:all .2s;background:transparent;color:var(--text2);font-family:'Space Grotesk',sans-serif}
+.tab.active{background:var(--maroon);color:var(--white);border-color:var(--maroon)}
+.tab:hover:not(.active){background:var(--bg3);color:var(--text);border-color:var(--border2)}
+
+/* CONTENT */
+.content{padding:1.25rem;max-width:880px;margin:0 auto}
+.sec-label{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--saffron);margin-bottom:1rem;display:flex;align-items:center;gap:10px;font-weight:700}
+.sec-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
+
+/* CARDS */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.25rem;margin-bottom:.85rem;position:relative;overflow:hidden;transition:all .25s}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--saffron),var(--maroon),var(--green))}
+.card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.card-date{font-size:10px;color:var(--saffronD);font-weight:700;text-transform:uppercase;letter-spacing:1.2px}
+.card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--white);margin:.25rem 0 .3rem}
+.card-desc{font-size:12px;color:var(--text2);line-height:1.6}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:.6rem 0 0}
+.tag{padding:2px 10px;border-radius:99px;font-size:10px;font-weight:600;border:1px solid}
+.tag.algo{background:rgba(255,153,51,0.08);border-color:rgba(255,153,51,0.3);color:var(--saffron)}
+.tag.ds{background:rgba(34,197,94,0.07);border-color:rgba(34,197,94,0.3);color:var(--green)}
+.tag.theory{background:rgba(139,26,26,0.15);border-color:rgba(139,26,26,0.5);color:#e06060}
+.tag.oop{background:rgba(212,175,55,0.07);border-color:rgba(212,175,55,0.3);color:var(--gold)}
+.vid-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(220,30,30,0.1);border:1px solid rgba(220,30,30,0.3);border-radius:5px;padding:2px 8px;font-size:9px;color:#ff6060;font-weight:700;margin-left:6px}
+
+/* ACTIONS */
+.actions{display:flex;gap:6px;align-items:center;margin-top:.85rem;padding-top:.75rem;border-top:1px solid var(--border);flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;border:1px solid;font-family:'Space Grotesk',sans-serif;text-decoration:none}
+.btn-quiz{background:var(--maroon);color:var(--white);border-color:var(--maroon)}
+.btn-quiz:hover{background:var(--saffron);border-color:var(--saffron);color:#000}
+.btn-video{background:rgba(220,30,30,0.1);color:#ff6060;border-color:rgba(220,30,30,0.3)}
+.btn-video:hover{background:#c00;color:#fff;border-color:#c00}
+.btn-video.disabled{opacity:.35;pointer-events:none}
+.btn-qr{background:rgba(34,197,94,0.08);color:var(--green);border-color:rgba(34,197,94,0.3)}
+.btn-qr:hover{background:var(--green);color:#000}
+.btn-read{background:rgba(212,175,55,0.07);color:var(--gold);border-color:rgba(212,175,55,0.3)}
+.btn-read:hover{background:var(--gold);color:#000}
+.btn-del{background:transparent;color:var(--text3);border-color:var(--border);margin-left:auto}
+.btn-del:hover{color:#ff5050;border-color:rgba(255,80,80,0.4);background:rgba(255,80,80,0.06)}
+
+/* QR PANEL */
+.qr-panel{display:none;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.2);border-radius:10px;padding:.9rem;margin-top:.65rem;text-align:center}
+.qr-panel.show{display:block;animation:fadeUp .25s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.qr-panel small{font-size:10px;color:var(--text3);display:block;margin-top:.4rem}
+.qr-panel a{color:var(--green);font-size:11px;word-break:break-all;font-weight:600}
+
+/* ADD BTN */
+.add-btn{width:100%;padding:.9rem;background:transparent;border:1.5px dashed var(--border2);border-radius:14px;color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Space Grotesk',sans-serif;margin-top:.5rem}
+.add-btn:hover{border-color:var(--saffron);color:var(--saffron);background:rgba(255,153,51,0.04)}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:100;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-bg.show{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-top:3px solid var(--saffron);border-radius:18px;padding:1.6rem;width:min(500px,96vw);max-height:92vh;overflow-y:auto}
+.modal-hdr{display:flex;align-items:center;gap:12px;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.modal-logo{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold)}
+.modal h3{font-size:.95rem;color:var(--white);font-weight:700}
+.modal h3 span{color:var(--saffron)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fg{margin-bottom:.85rem}
+.fg label{display:block;font-size:10px;color:var(--text3);margin-bottom:.35rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.fg input,.fg textarea,.fg select{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;color:var(--text);font-size:13px;font-family:'Space Grotesk',sans-serif;outline:none;transition:border .2s}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--saffron)}
+.fg textarea{resize:vertical;min-height:72px}
+.fg select option{background:var(--bg3)}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:1.1rem}
+.btn-cancel{padding:9px 18px;border-radius:8px;background:transparent;border:1px solid var(--border2);color:var(--text2);font-size:12px;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-weight:600}
+.btn-save{padding:9px 22px;border-radius:8px;background:var(--saffron);border:none;color:#000;font-size:12px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:all .2s}
+.btn-save:hover{background:var(--maroonL);color:#fff}
+
+/* DETAIL */
+#detail-view{display:none;padding:1.25rem;max-width:880px;margin:0 auto;animation:fadeUp .25s}
+.det-back{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:12px;cursor:pointer;margin-bottom:1.1rem;border:1px solid var(--border);background:transparent;padding:7px 16px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:600;transition:all .2s}
+.det-back:hover{border-color:var(--saffron);color:var(--saffron)}
+.det-card{background:var(--bg2);border:1px solid var(--border2);border-radius:18px;padding:1.75rem;position:relative;overflow:hidden}
+.det-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--saffron) 33%,rgba(255,255,255,0.3) 33% 66%,var(--green) 66%)}
+.det-date{font-size:10px;color:var(--saffronD);font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-top:.4rem}
+.det-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--white);margin:.4rem 0 .9rem;line-height:1.2}
+.det-body{font-size:13px;color:var(--text2);line-height:1.9}
+.det-body h4{color:var(--saffron);font-size:11px;font-weight:700;margin:1rem 0 .3rem;text-transform:uppercase;letter-spacing:1px}
+.det-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border)}
+.qr-big{margin-top:1rem;padding:1.1rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.18);border-radius:12px;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.qr-big-txt h4{font-size:12px;font-weight:700;color:var(--green);margin-bottom:.25rem}
+.qr-big-txt a{color:var(--text2);font-size:11px;word-break:break-all}
+
+.empty{text-align:center;padding:3rem 1rem;color:var(--text3)}
+.empty .ico{font-size:2.5rem;margin-bottom:.5rem;opacity:.4}
+.empty p{font-size:13px}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:99px}
+</style>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="tricolor-top"></div>
+  <div class="hero-body">
+    <div class="logo-wrap">
+      <div class="logo-ring">
+        <img id="kv-logo-img" src="" alt="KVS">
+      </div>
+      <div class="logo-glow"></div>
+    </div>
+    <div class="hero-text">
+      <div class="kv-label">Kendriya Vidyalaya Sangathan · Rewari</div>
+      <div class="blog-title">
+        <span class="hi">Class XII B</span> Computer Science<br><span class="lo">Study Log</span>
+      </div>
+      <div class="blog-sub">Daily topics · Quiz links · Video resources · QR codes</div>
+      <div class="motto-pill"><div class="motto-dot"></div>तत्त्वं पूषन् अपावृणु — Uncover the Truth<div class="motto-dot"></div></div>
+      <div class="stats">
+        <div class="stat"><strong id="s-total">0</strong><span>Entries</span></div>
+        <div class="stat"><strong id="s-streak">0</strong><span>Streak</span></div>
+        <div class="stat"><strong id="s-videos">0</strong><span>Videos</span></div>
+        <div class="stat"><strong id="s-quizzes">0</strong><span>Quizzes</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="tricolor-bot"></div>
+</div>
+
+<!-- ══ STREAK ══ -->
+<div class="streak-wrap">
+  <div class="streak-lbl">14-day log</div>
+  <div class="streak-dots" id="streak-dots"></div>
+</div>
+
+<!-- ══ NAV ══ -->
+<div class="nav">
+  <button class="tab active" onclick="switchTab('all',this)">All Entries</button>
+  <button class="tab" onclick="switchTab('algo',this)">Algorithms</button>
+  <button class="tab" onclick="switchTab('ds',this)">Data Structures</button>
+  <button class="tab" onclick="switchTab('theory',this)">Theory</button>
+  <button class="tab" onclick="switchTab('oop',this)">OOP</button>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div id="main-view">
+  <div class="content">
+    <div class="sec-label">Recent Entries</div>
+    <div id="entries-list"></div>
+    <button class="add-btn" onclick="openModal()">＋ Add Today's Study Entry</button>
+  </div>
+</div>
+
+<!-- ══ DETAIL ══ -->
+<div id="detail-view">
+  <button class="det-back" onclick="showMain()">← Back</button>
+  <div class="det-card" id="det-content"></div>
+</div>
+
+<!-- ══ MODAL ══ -->
+<div class="modal-bg" id="modal">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-hdr">
+      <img class="modal-logo" id="modal-logo-img" src="" alt="KVS">
+      <div>
+        <h3><span>New Entry</span> — XII B CS</h3>
+        <div style="font-size:10px;color:var(--text3);margin-top:2px">Fill in today's topic details</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="fg"><label>Date</label><input type="date" id="f-date"></div>
+      <div class="fg"><label>Category</label>
+        <select id="f-cat">
+          <option value="algo">Algorithm</option>
+          <option value="ds">Data Structure</option>
+          <option value="theory">Theory</option>
+          <option value="oop">OOP</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg"><label>Topic Title</label><input type="text" id="f-title" placeholder="e.g. Binary Search Trees, Stacks, OOP Concepts..."></div>
+    <div class="fg"><label>What You Learned</label><textarea id="f-notes" placeholder="Key concepts, formulas, important points, code snippets..."></textarea></div>
+    <div class="fg"><label>Quiz Link (Google Form / URL)</label><input type="url" id="f-quiz" placeholder="https://forms.gle/..."></div>
+    <div class="fg">
+      <label>▶ Video Link (YouTube / Google Drive)</label>
+      <input type="url" id="f-video" placeholder="https://youtube.com/watch?v=...">
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" onclick="saveEntry()">Save Entry →</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+/* ── Updated Logo Source ── */
+// We use the direct URL here and remove the Base64 prefix logic
+const KVS_SRC = "https://media.licdn.com/dms/image/v2/D4D0BAQFzl0kXNPtlbg/company-logo_200_200/company-logo_200_200/0/1697306103892?e=2147483647&v=beta&t=gVd_e1V1rndfWGazKGwHw_JscKLZn9vvhd24Rn34n2s";
+
+// Apply the URL directly to your image elements
+document.getElementById('kv-logo-img').src = KVS_SRC;
+document.getElementById('modal-logo-img').src = KVS_SRC;4/home/himanshu/Documents/CS_website/kv_xii_cs_dark_blog.html
+
+/* ── DATA ── */
+const CAT = {algo:'Algorithm', ds:'Data Structure', theory:'Theory', oop:'OOP'};
+let entries = JSON.parse(localStorage.getItem('kv_xii_cs_dark') || 'null') || [
+  {id:1, date:'2025-04-15', title:'Binary Search', cat:'algo',
+   notes:'Binary search halves a sorted array each step — O(log n).\n\nKey Points:\n• Array must be sorted first\n• mid = (low + high) / 2\n• Time: O(log n) · Space: O(1)\n• Much faster than linear search for large n',
+   quiz:'https://forms.gle/example1', video:'https://youtube.com/watch?v=P3YID7liBug'},
+  {id:2, date:'2025-04-16', title:'Linked Lists', cat:'ds',
+   notes:'Chain of nodes — each holds data + pointer to the next.\n\nKey Points:\n• Head pointer → first node\n• O(1) insert/delete at head\n• O(n) search — no random access\n• Types: Singly, Doubly, Circular',
+   quiz:'https://forms.gle/example2', video:'https://youtube.com/watch?v=njTh_OwMljA'},
+  {id:3, date:'2025-04-17', title:'Big O Notation', cat:'theory',
+   notes:'Describes upper-bound performance as input n grows.\n\nOrder (fast→slow):\n• O(1) constant\n• O(log n) logarithmic\n• O(n) linear\n• O(n log n) merge sort\n• O(n²) bubble sort',
+   quiz:'https://forms.gle/example3', video:''},
+  {id:4, date:'2025-04-18', title:'Inheritance & Polymorphism', cat:'oop',
+   notes:'Inheritance: child class reuses parent methods & attributes.\n\nKey Points:\n• extends keyword in Java/Python\n• super() calls parent constructor\n• Method overriding = runtime polymorphism\n• IS-A relationship',
+   quiz:'https://forms.gle/example4', video:'https://youtube.com/watch?v=lyuu79g4pjQ'},
+];
+let curTab = 'all', qrDone = {};
+
+function save(){ localStorage.setItem('kv_xii_cs_dark', JSON.stringify(entries)); }
+function fmt(d){ const [y,m,day]=d.split('-'); const mn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; return `${mn[+m-1]} ${+day}, ${y}`; }
+function snip(n){ return n.split('\n')[0].slice(0,95) + (n.length>95?'…':''); }
+
+function switchTab(t, el){
+  curTab = t;
+  document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+  el.classList.add('active');
+  render();
+}
+
+function render(){
+  const el = document.getElementById('entries-list');
+  const filtered = curTab==='all' ? entries : entries.filter(e=>e.cat===curTab);
+  const sorted = [...filtered].sort((a,b)=>b.date.localeCompare(a.date));
+  if(!sorted.length){
+    el.innerHTML = '<div class="empty"><div class="ico">📭</div><p>No entries yet — add your first topic!</p></div>';
+    updateStats(); renderStreak(); return;
+  }
+  el.innerHTML = sorted.map(e => `
+    <div class="card">
+      <div class="card-date">${fmt(e.date)}</div>
+      <div class="card-title">${e.title}${e.video?'<span class="vid-badge">▶ Video</span>':''}</div>
+      <div class="card-desc">${snip(e.notes)}</div>
+      <div class="tags"><span class="tag ${e.cat}">${CAT[e.cat]}</span></div>
+      <div class="actions">
+        <a class="btn btn-quiz" href="${e.quiz}" target="_blank">Take Quiz →</a>
+        <a class="btn btn-video ${e.video?'':'disabled'}" href="${e.video||'#'}" target="${e.video?'_blank':'_self'}">▶ Watch Video</a>
+        <button class="btn btn-qr" onclick="toggleQR(${e.id},event)">QR Code</button>
+        <button class="btn btn-read" onclick="showDetail(${e.id})">Read More</button>
+        <button class="btn btn-del" onclick="delEntry(${e.id},event)">✕</button>
+      </div>
+      <div class="qr-panel" id="qr-${e.id}">
+        <div id="qrc-${e.id}"></div>
+        <small>Scan to open quiz</small>
+        <a href="${e.quiz}" target="_blank">${e.quiz}</a>
+      </div>
+    </div>
+  `).join('');
+  updateStats(); renderStreak();
+}
+
+function toggleQR(id, ev){
+  ev.stopPropagation();
+  const p = document.getElementById(`qr-${id}`);
+  p.classList.toggle('show');
+  if(p.classList.contains('show') && !qrDone[id]){
+    const e = entries.find(x=>x.id===id);
+    try{
+      new QRCode(document.getElementById(`qrc-${id}`),{
+        text:e.quiz, width:110, height:110,
+        colorDark:'#FF9933', colorLight:'#0d0d0d',
+        correctLevel:QRCode.CorrectLevel.H
+      });
+    }catch(ex){}
+    qrDone[id] = true;
+  }
+}
+
+function showDetail(id){
+  const e = entries.find(x=>x.id===id);
+  document.getElementById('main-view').style.display = 'none';
+  document.getElementById('detail-view').style.display = 'block';
+  const body = e.notes
+    .replace(/\n\nKey Points:/g,'</p><h4>Key Points</h4><p>')
+    .replace(/\n\n/g,'</p><p style="margin-top:.6rem">')
+    .replace(/\n/g,'<br>');
+  document.getElementById('det-content').innerHTML = `
+    <div class="det-date">${fmt(e.date)} · ${CAT[e.cat]}</div>
+    <div class="det-title">${e.title}</div>
+    <div class="det-body"><p>${body}</p></div>
+    <div class="det-links">
+      <a class="btn btn-quiz" href="${e.quiz}" target="_blank">Take Quiz →</a>
+      ${e.video?`<a class="btn btn-video" href="${e.video}" target="_blank">▶ Watch Video</a>`:''}
+    </div>
+    <div class="qr-big">
+      <div id="det-qrc-${id}"></div>
+      <div class="qr-big-txt">
+        <h4>Quiz QR Code</h4>
+        <a href="${e.quiz}" target="_blank">${e.quiz}</a>
+      </div>
+    </div>
+  `;
+  try{
+    new QRCode(document.getElementById(`det-qrc-${id}`),{
+      text:e.quiz, width:96, height:96,
+      colorDark:'#22c55e', colorLight:'#0d0d0d',
+      correctLevel:QRCode.CorrectLevel.H
+    });
+  }catch(ex){}
+}
+
+function showMain(){
+  document.getElementById('main-view').style.display = 'block';
+  document.getElementById('detail-view').style.display = 'none';
+}
+
+function openModal(){
+  document.getElementById('f-date').value = new Date().toISOString().slice(0,10);
+  ['f-title','f-notes','f-quiz','f-video'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('modal').classList.add('show');
+}
+function closeModal(){ document.getElementById('modal').classList.remove('show'); }
+
+function saveEntry(){
+  const t = document.getElementById('f-title').value.trim();
+  const q = document.getElementById('f-quiz').value.trim();
+  if(!t || !q){ alert('Please fill in the topic title and quiz link.'); return; }
+  entries.push({
+    id: Date.now(),
+    date: document.getElementById('f-date').value,
+    title: t,
+    cat: document.getElementById('f-cat').value,
+    notes: document.getElementById('f-notes').value.trim() || 'No notes added.',
+    quiz: q,
+    video: document.getElementById('f-video').value.trim()
+  });
+  save(); closeModal();
+  curTab = 'all';
+  document.querySelectorAll('.tab').forEach((x,i) => x.classList.toggle('active', i===0));
+  qrDone = {}; render();
+}
+
+function delEntry(id, ev){
+  ev.stopPropagation();
+  if(!confirm('Delete this entry?')) return;
+  entries = entries.filter(e=>e.id!==id); save(); render();
+}
+
+function updateStats(){
+  document.getElementById('s-total').textContent = entries.length;
+  document.getElementById('s-quizzes').textContent = entries.filter(e=>e.quiz).length;
+  document.getElementById('s-videos').textContent = entries.filter(e=>e.video).length;
+  const dates = [...new Set(entries.map(e=>e.date))].sort();
+  let streak = 0;
+  if(dates.length){
+    let d = new Date();
+    for(let i=0;i<30;i++){
+      const ds = d.toISOString().slice(0,10);
+      if(dates.includes(ds)) streak++;
+      else if(i>0) break;
+      d.setDate(d.getDate()-1);
+    }
+  }
+  document.getElementById('s-streak').textContent = streak;
+}
+
+function renderStreak(){
+  const wrap = document.getElementById('streak-dots');
+  const dates = new Set(entries.map(e=>e.date));
+  const today = new Date(); let html = '';
+  for(let i=13;i>=0;i--){
+    const d = new Date(today); d.setDate(d.getDate()-i);
+    const ds = d.toISOString().slice(0,10);
+    const cls = i===0 ? 'today' : dates.has(ds) ? 'done' : 'miss';
+    html += `<div class="dd ${cls}" title="${ds}">${d.getDate()}</div>`;
+  }
+  wrap.innerHTML = html;
+}
+
+document.getElementById('modal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
+render();
+</script>
